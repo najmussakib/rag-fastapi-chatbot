@@ -17,7 +17,7 @@ def display_sidebar():
                     st.sidebar.success(f"File '{uploaded_file.name}' uploaded successfully with ID {upload_response['file_id']}.")
                     st.session_state.documents = list_documents() # Refresh the list after uplaod
 
-    # Sidenbar: List Documents
+    # Sidebar: List Documents
     st.sidebar.header("Upload Documents")
     if st.sidebar.button("Refresh Document List"):
         with st.spinner("Refreshing..."):
