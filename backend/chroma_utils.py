@@ -1,7 +1,7 @@
 import os
 from typing import List
 
-from langchain_community.documet_loaders import PyPDFLoader, Docx2txtLoader, UnstructuredHTMLLoader
+from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader, UnstructuredHTMLLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma

@@ -1,6 +1,9 @@
 import streamlit as st
 from sidebar import display_sidebar
 from chat_interface import display_chat_interface
+from dotenv import load_dotenv
+
+load_dotenv()
 
 st.title("Langchain RAG Chatbot")
 
