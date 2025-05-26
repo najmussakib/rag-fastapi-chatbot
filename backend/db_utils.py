@@ -1,11 +1,11 @@
-import sqllite3
+import sqlite3
 from datetime import datetime
 
 DB_NAME = "rag_app.db"
 
 def get_db_connection():
-    conn = sqllite3.connect(DB_NAME)
-    conn.row_factory = sqllite3.Row
+    conn = sqlite3.connect(DB_NAME)
+    conn.row_factory = sqlite3.Row
     return conn
 
 # Creating DB Tables
@@ -66,7 +66,7 @@ def insert_document_record(filename):
 def get_all_documents():
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute('SELECT id, filename, uplaod_timestamp FROM document_store ORDER BY upload_timestamp DESC')
+    cursor.execute('SELECT id, filename, upload_timestamp FROM document_store ORDER BY upload_timestamp DESC')
     documents = cursor.fetchall()
     conn.close()
     return [dict(doc) for doc in documents]
