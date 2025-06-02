@@ -6,6 +6,10 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.documents import Document
 
 from chroma_utils import vector_store
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 retriever = vector_store.as_retriever(search_kwargs={"k": 2})
 output_parser = StrOutputParser()

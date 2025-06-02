@@ -2,7 +2,7 @@ import streamlit as st
 from api_utils import get_api_response
 
 def display_chat_interface():
-    # Chat Inteface
+    # Chat interface
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
@@ -17,7 +17,7 @@ def display_chat_interface():
 
             if response:
                 st.session_state.session_id = response.get('session_id')
-                st.session_sate.messages.append({"role": "assistant", "conetnt": response['answer']})
+                st.session_state.messages.append({"role": "assistant", "content": response['answer']})
 
                 with st.chat_message("assistant"):
                     st.markdown(response['answer'])
@@ -29,6 +29,5 @@ def display_chat_interface():
                         st.code(response['model'])
                         st.subheader("Session ID")
                         st.code(response['session_id'])
-
             else:
                 st.error("Failed to get a response from the API. Please try again.")
